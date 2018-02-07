@@ -1,0 +1,3 @@
+apt-get -y install openssh-server
+sed -i.bak -Ee 's/^#?Port\s+[0-9]*$/Port 1234/g;' /etc/ssh/sshd_config
+systemctl restart ssh
