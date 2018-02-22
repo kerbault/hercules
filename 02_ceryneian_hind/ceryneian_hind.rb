@@ -6,7 +6,7 @@
 #    By: kerbault <kerbault@student.le-101.fr>      +:+   +:    +:    +:+      #
 #                                                  #+#   #+    #+    #+#       #
 #    Created: 2018/02/21 15:37:51 by kerbault     #+#   ##    ##    #+#        #
-#    Updated: 2018/02/21 23:32:14 by kerbault    ###    #+. /#+    ###.fr      #
+#    Updated: 2018/02/22 17:45:34 by kerbault    ###    #+. /#+    ###.fr      #
 #                                                          /                   #
 #                                                         /                    #
 # **************************************************************************** #
@@ -19,14 +19,18 @@ if ARGV.empty? || !File.exist?(ARGV[0]) || ARGV[1]
 	exit
 end
 
-UID = ENV['API_UID']
-SECRET = ENV['API_SECRET']
+file = ARGV[0]
+ARGV.clear
+
+puts "enter API UID : "
+UID = gets.chomp
+puts "enter API SECRET : "
+SECRET = gets.chomp
+
 # Create the client with your credentials
 client = OAuth2::Client.new(UID, SECRET, site: "https://api.intra.42.fr")
 # Get an access token
 token = client.client_credentials.get_token
-
-file = ARGV[0]
 
 puts "Scanning...".green
 File.readlines(file).each do |line|
