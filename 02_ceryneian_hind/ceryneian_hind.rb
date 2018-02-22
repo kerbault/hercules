@@ -6,7 +6,7 @@
 #    By: kerbault <kerbault@student.le-101.fr>      +:+   +:    +:    +:+      #
 #                                                  #+#   #+    #+    #+#       #
 #    Created: 2018/02/21 15:37:51 by kerbault     #+#   ##    ##    #+#        #
-#    Updated: 2018/02/22 17:45:34 by kerbault    ###    #+. /#+    ###.fr      #
+#    Updated: 2018/02/22 20:22:22 by kerbault    ###    #+. /#+    ###.fr      #
 #                                                          /                   #
 #                                                         /                    #
 # **************************************************************************** #
@@ -23,9 +23,11 @@ file = ARGV[0]
 ARGV.clear
 
 puts "enter API UID : ".green
-UID = gets.chomp
+# UID = gets.chomp
+UID = "b502b8ac2baee9a252ad29de3a0b89db7f2b2435df2d216df4344552503a553c"
 puts "enter API SECRET : ".green
-SECRET = gets.chomp
+# SECRET = gets.chomp
+SECRET = "56a1691d5253522e114988e9d1e9cbfe43ef9d0f06fde4f595a92fc42b67c5d8"
 
 # Create the client with your credentials
 client = OAuth2::Client.new(UID, SECRET, site: "https://api.intra.42.fr")
@@ -38,20 +40,20 @@ File.readlines(file).each do |line|
 	login = line.strip
 	if login.empty?
 		next
-	end		
+	end
 	begin
 		response = token.get("/v2/users/#{login}")
 	rescue
-		puts "wrong login or api down".yellow
+		puts "#{login} | " + "wrong login or api down".yellow
 		next
 	end
 	parse = response.parsed
 	location = parse["location"]
-	print parse["first_name"] + " " + parse["last_name"] + " (" + login
+	print "#{login} | "
 	if location.to_s.empty?
-		puts ") isn't logged"
+		puts "offline".red
 	else
-		puts ") is logged on " + location
+		puts "online".green + " | " + location.green
 	end
 end
 puts "Done".green
