@@ -6,7 +6,7 @@
 #    By: kerbault <kerbault@student.le-101.fr>      +:+   +:    +:    +:+      #
 #                                                  #+#   #+    #+    #+#       #
 #    Created: 2018/02/21 15:37:51 by kerbault     #+#   ##    ##    #+#        #
-#    Updated: 2018/02/22 20:22:22 by kerbault    ###    #+. /#+    ###.fr      #
+#    Updated: 2018/02/22 20:23:58 by kerbault    ###    #+. /#+    ###.fr      #
 #                                                          /                   #
 #                                                         /                    #
 # **************************************************************************** #
@@ -23,11 +23,9 @@ file = ARGV[0]
 ARGV.clear
 
 puts "enter API UID : ".green
-# UID = gets.chomp
-UID = "b502b8ac2baee9a252ad29de3a0b89db7f2b2435df2d216df4344552503a553c"
+UID = gets.chomp
 puts "enter API SECRET : ".green
-# SECRET = gets.chomp
-SECRET = "56a1691d5253522e114988e9d1e9cbfe43ef9d0f06fde4f595a92fc42b67c5d8"
+SECRET = gets.chomp
 
 # Create the client with your credentials
 client = OAuth2::Client.new(UID, SECRET, site: "https://api.intra.42.fr")
