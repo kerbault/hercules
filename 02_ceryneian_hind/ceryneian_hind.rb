@@ -22,9 +22,9 @@ end
 file = ARGV[0]
 ARGV.clear
 
-puts "enter API UID : "
+puts "enter API UID : ".green
 UID = gets.chomp
-puts "enter API SECRET : "
+puts "enter API SECRET : ".green
 SECRET = gets.chomp
 
 # Create the client with your credentials
