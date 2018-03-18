@@ -33,7 +33,7 @@ done
 # autor file
 
 sleep 0.5
-printf "\033[32mLazy buddy\033[37m : Do you want an to include an autor file ?\n\n"
+printf "\033[32mLazy buddy\033[37m : Do you want to include an author file ?\n\n"
 while true; do
 	printf "\033[36mYou\033[37m : "
 	read resp
