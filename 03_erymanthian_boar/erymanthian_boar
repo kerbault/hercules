@@ -1,0 +1,10 @@
+at 8:42 12/21 << EOT
+echo "888" > cage
+echo "888" >> cage
+echo "888" >> cage
+echo "88888b.  .d88b.  8888b. 888d888" >> cage
+echo "888 \"88bd88\"\"88b    \"88b888P\"" >> cage
+echo "888  888888  888.d888888888" >> cage
+echo "888 d88PY88..88P888  888888" >> cage
+echo "88888P\"  \"Y88P\" \"Y888888888" >> cage
+EOT
